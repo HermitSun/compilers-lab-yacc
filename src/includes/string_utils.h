@@ -1,4 +1,4 @@
-#ifndef string_operations
+#ifndef string_utils
 
 #include <vector>
 #include <string>
