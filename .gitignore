@@ -1,0 +1,6 @@
+# IDE conf
+.vscode/
+
+# product
+*.exe
+*.pdf
