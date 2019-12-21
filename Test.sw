@@ -7,36 +7,19 @@ import MathOverflowException;
 
 // properties
 number array[10];
-Test next = void;
+Test next;
+number i;
+i = 0;
 
-// methods
-export void say_hello(function get_msg){
-    number i = 0;
-    while(i < 3){
-        if(i == 1){
-            OS.print(get_msg());
-            array[i] = i;
-            continue;
-        } else {
-            OS.print(add(2, 1.0));
-            break;
-        }
+while(array[i]){
+    if(next){
+        continue;
+    }else{
+        break;
     }
-    try{
-        Test t;
-    	next = t;
-    }catch(Exception){
-        OS.print(Exception.what());
-    }
+    i = i + 1;
 }
+array[i] = (2 + 1.0 * 3 / 4.0);
+print(1 + 1.0 * 3 == 4);
 
-number add(number a, number b) throw MathOverflowException{
-    if(a + b < MIN_NUMBER){
-        throw MathOverflowException;
-    }
-    return a + b;
-}
-
-string get_msg(){
-    return "Hello World!";
-}
+return 0;
