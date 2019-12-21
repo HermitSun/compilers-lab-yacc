@@ -190,10 +190,12 @@ bool analyze_lex(const string &in_path, vector<string> &out_vec)
                 current_state = STATE_I18;
             }
             // 其他字符则是操作符
+            // 这里不按状态机来了，直接结束算了
             else
             {
                 current_token_type = "OPERATOR";
-                current_state = STATE_I1;
+                reset_FA_and_trim(in_file, out_vec,
+                                  current_token, current_token_type, current_state);
             }
             break;
         case STATE_I15:
