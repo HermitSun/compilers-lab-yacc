@@ -1,17 +1,118 @@
 #include <iostream>
+#include <fstream>
 #include <string>
+#include <queue>
+#include <vector>
 #include "../includes/syntax_analyzer.h"
 #include "../includes/string_utils.h"
+#include "../includes/syntax_enums.h"
 using namespace std;
 
-void preprocess(vector<string> &tokens);
-
-bool analyze_syntax(vector<string> &tokens)
+// 可能的操作类型
+enum OPERATIONS
 {
-    preprocess(tokens);
-    for (const string &s : tokens)
+    ACC,
+    SHIFT,
+    REDUCE,
+    GOTO
+};
+
+queue<string> preprocess(vector<string> &tokens);
+OPERATIONS get_operation_type(const string &op);
+bool go_to(vector<int> &state_stack, vector<string> &symbol_stack);
+void print_stack_trace(vector<int> &state_stack, vector<string> &symbol_stack);
+
+// 不用stack的原因是需要输出每一步的规约过程……用vector总觉得有哪里不对
+bool analyze_syntax(vector<string> &tokens, const string &out_path)
+{
+    // 处理过的token
+    queue<string> processed_tokens = preprocess(tokens);
+    // 规约过程保存路径
+    ofstream out(out_path);
+    // 状态栈，初始0号自动机
+    vector<int> state_stack;
+    state_stack.push_back(0);
+    // 符号栈，栈底预先压一个$
+    vector<string> symbol_stack;
+    symbol_stack.push_back("$");
+    // 读头不为空
+    while (!processed_tokens.empty())
     {
-        cout << s << endl;
+        int state = state_stack.back();
+        // 读头项
+        string reader_item = processed_tokens.front();
+        cout << state << " " << reader_item << endl;
+        // 查表获取操作类型
+        auto element_index = element_to_number.find(reader_item);
+        // 如果查不到，未知操作数，报错
+        if (element_index == element_to_number.end())
+        {
+            cout << "Error exist. Unknown operand: " + reader_item << endl;
+            return false;
+        }
+        string operation = SLR_table[state][element_index->second];
+        // 未定义行为
+        if (operation == " ")
+        {
+            cout << "Error exist."
+                 << "Maybe the previous statement did not end correctly?"
+                 << endl;
+            return false;
+        }
+        cout << operation << endl;
+        switch (get_operation_type(operation))
+        {
+        // 语法分析正确完成
+        case ACC:
+            return true;
+        case SHIFT:
+        {
+            // 移进式
+            int index = atoi(operation.substr(1, operation.length() - 1).c_str());
+            state_stack.push_back(index);
+            symbol_stack.push_back(reader_item);
+            // 读头项出队
+            processed_tokens.pop();
+            print_stack_trace(state_stack, symbol_stack);
+            break;
+        }
+        case REDUCE:
+        {
+            // 规约式
+            pair<string, string> reduction =
+                CFG[atoi(operation.substr(1, operation.length() - 1).c_str())];
+            // 如果不能用ε规约
+            if (reduction.first != "")
+            {
+                // 需要pop的项数
+                int pop_num = split_string(reduction.first, " ").size();
+                for (int i = 0; i < pop_num; ++i)
+                {
+                    state_stack.pop_back();
+                    symbol_stack.pop_back();
+                }
+            }
+            // 规约后，符号栈压栈
+            symbol_stack.push_back(reduction.second);
+            print_stack_trace(state_stack, symbol_stack);
+            // 进行GOTO操作
+            bool result = go_to(state_stack, symbol_stack);
+            // 出错
+            if (!result)
+            {
+                cout << "Error exist." << endl;
+                return false;
+            }
+            break;
+        }
+        case GOTO:
+            // 状态栈压栈
+            state_stack.push_back(atoi(operation.c_str()));
+            print_stack_trace(state_stack, symbol_stack);
+            break;
+        default:
+            return false;
+        }
     }
     return true;
 }
@@ -19,10 +120,11 @@ bool analyze_syntax(vector<string> &tokens)
 /**
  * 对token进行预处理
  * @param tokens 保存tokens的vector
+ * @return token队列
  */
-void preprocess(vector<string> &tokens)
+queue<string> preprocess(vector<string> &tokens)
 {
-    vector<string> processed_tokens;
+    queue<string> processed_tokens;
     for (const string &token : tokens)
     {
         vector<string> splitted_token = split_string(token, ", ");
@@ -36,13 +138,85 @@ void preprocess(vector<string> &tokens)
         // 将部分token泛化为类型
         else if (type == "NUMBER" || type == "ID")
         {
-            processed_tokens.push_back(type);
+            processed_tokens.push(type);
         }
         else
         {
-            processed_tokens.push_back(content);
+            processed_tokens.push(content);
         }
     }
-    tokens.clear();
-    tokens.assign(processed_tokens.begin(), processed_tokens.end());
+    return processed_tokens;
+}
+
+/**
+ * 判断SLR Table中操作的类型
+ * @param op 操作
+ * @return 操作类型，acc/移进/规约/跳转
+ */
+OPERATIONS get_operation_type(const string &op)
+{
+    if (op == "acc")
+    {
+        return ACC;
+    }
+    else if (op[0] == 's')
+    {
+        return SHIFT;
+    }
+    else if (op[0] == 'r')
+    {
+        return REDUCE;
+    }
+    else
+    {
+        return GOTO;
+    }
+}
+
+/**
+ * GOTO操作
+ * @param state_stack 状态栈
+ * @param symbol_stack 符号栈
+ * @return true成功，false存在错误
+ */
+bool go_to(vector<int> &state_stack, vector<string> &symbol_stack)
+{
+    int state = state_stack.back();
+    string symbol = symbol_stack.back();
+    string goto_state = SLR_table[state][element_to_number[symbol]];
+    // 没有预定的行为
+    if (goto_state == " ")
+    {
+        cout << "Unknown GOTO operation." << endl;
+        return false;
+    }
+    else
+    {
+        state_stack.push_back(atoi(goto_state.c_str()));
+        print_stack_trace(state_stack, symbol_stack);
+        return true;
+    }
+}
+
+/**
+ * 打印栈的操作轨迹
+ * @param state_stack 状态栈
+ * @param symbol_stack 符号栈
+ */
+void print_stack_trace(vector<int> &state_stack, vector<string> &symbol_stack)
+{
+    // 打印栈
+    cout << "State Stack: ";
+    for (const int &state : state_stack)
+    {
+        cout << state << " ";
+    }
+    cout << endl;
+    cout << "Symbol Stack: ";
+    for (const string &symbol : symbol_stack)
+    {
+        cout << symbol << " ";
+    }
+    cout << endl
+         << endl;
 }
