@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include "includes/lex_analyzer.h"
+#include "includes/syntax_analyzer.h"
 using std::cout;
 using std::endl;
 using std::string;
@@ -13,9 +14,10 @@ int main()
     if (successed)
     {
         cout << "Lex analysis finished successfully." << endl;
-    }
-    for (const string &token : tokens)
-    {
-        cout << token << endl;
+        successed = analyze_syntax(tokens);
+        if (successed)
+        {
+            cout << "Syntax analysis finished successfully." << endl;
+        }
     }
 }
