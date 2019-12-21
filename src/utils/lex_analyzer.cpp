@@ -264,7 +264,7 @@ exist:
     // 只能说明有错误……
     if (current_state != STATE_I0)
     {
-        cout << "Error exist. Perhaps in line " + to_string(lines_count) + "." << endl;
+        cout << "Unknown token. Perhaps in line " + to_string(lines_count) + "." << endl;
         return false;
     }
     // 添加结束符
