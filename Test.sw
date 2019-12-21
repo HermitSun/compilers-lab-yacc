@@ -20,6 +20,6 @@ while(array[i]){
     i = i + 1;
 }
 array[i] = (2 + 1.0 * 3 / 4.0);
-print(1 + 1.0 * 3 == 4);
+print(1 + 1.0 * 3 == 4, i);
 
 return 0;
