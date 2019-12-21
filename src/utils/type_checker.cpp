@@ -1,5 +1,5 @@
 #include "../includes/type_checker.h"
-#include "../includes/enums.h"
+#include "../includes/lex_enums.h"
 
 bool is_char(const char &c)
 {

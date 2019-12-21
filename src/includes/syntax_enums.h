@@ -1,140 +1,125 @@
-#ifndef enums
+#ifndef syntax_enums
 
-#if defined(__linux__)
-#define ENTER_LENGTH 1
-#elif defined(_WIN32)
-#define ENTER_LENGTH 2
-#endif
-
-#include <set>
 #include <unordered_map>
 #include <vector>
 #include <string>
-using std::set;
-using std::string;
+
+using std::pair;
 using std::unordered_map;
 using std::vector;
-
-// 词法分析需要的常量
-// “所有”的字符
-const set<char> allchar = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
-                           'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
-                           'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
-                           'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
-                           '0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
-                           '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '+', '-',
-                           '=', '`', '~', '{', '}', '[', ']', ':', ';', '\'', ',', '.', '<',
-                           '>', '?', '/', '\\', '|', ' ', '"'};
-// 字符串中的字符（不包括双引号"）
-const set<char> stringchar = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
-                              'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
-                              'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
-                              'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
-                              '0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
-                              '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '+', '-',
-                              '=', '`', '~', '{', '}', '[', ']', ':', ';', '\'', ',', '.', '<',
-                              '>', '?', '/', '\\', '|', ' '};
-// 字母
-const set<char> letter = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n',
-                          'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B',
-                          'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P',
-                          'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
-// 数字
-const set<char> digit = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
-// 操作符
-const set<string> OPERATOR = {"+", "-", "*", "/", "(", ")", "<", ">", "<=", ">=", "==", "!=",
-                              "=", "[", "]", ".", "\\"};
-// 分隔符
-const set<char> SEPARATOR = {',', ';', '{', '}'};
-// 注释
-const set<char> COMMENT = {'/', '\n'};
-// 控制
-const set<string> CONTROL = {"if", "else", "while", "break", "continue", "return"};
-// 模块
-const set<string> MODULE = {"import", "export"};
-// 异常
-const set<string> EXCEPTION = {"try", "catch", "throw"};
-// 关键字
-const set<string> KEYWORD = {
-    "number", "string", "function", "void",
-    "try", "catch", "throw",
-    "if", "else", "while", "break", "continue", "return",
-    "import", "export"};
-
-// FA具有的状态
-enum FA_STATES
-{
-    STATE_I0 = 0,
-    STATE_I1 = 1,
-    STATE_I3 = 3,
-    STATE_I4 = 4,
-    STATE_I6 = 6,
-    STATE_I12 = 12,
-    STATE_I15 = 15,
-    STATE_I18 = 18,
-    STATE_I19 = 19,
-    STATE_I24 = 24,
-    STATE_I25 = 25
-};
+using std::string;
 
 // 语法分析需要的常量
-// 产生式的编号，用于规约
-const unordered_map<string, int> CFG = {
-    {"program -> stmt_list", 0},
-    {"stmt_list -> stmt_list stmt", 1},
-    {"stmt_list -> ''", 2},
-    {"stmt -> expr_stmt", 3},
-    {"stmt -> decl_stmt", 4},
-    {"stmt -> module_stmt", 5},
-    {"stmt -> compound_stmt", 6},
-    {"stmt -> if_stmt", 7},
-    {"stmt -> while_stmt", 8},
-    {"stmt -> return_stmt", 9},
-    {"stmt -> continue ;", 10},
-    {"stmt -> break ;", 11},
-    {"expr_stmt -> ID = expr ;", 12},
-    {"expr_stmt -> ID [ expr ] = expr ;", 13},
-    {"expr_stmt -> expr ;", 14},
-    {"expr_stmt -> ;", 15},
-    {"decl_stmt -> type_spec ID ;", 16},
-    {"decl_stmt -> type_spec ID [ int_literal ] ; ", 17},
-    {"type_spec -> void", 18},
-    {"type_spec -> number", 19},
-    {"type_spec -> string", 20},
-    {"type_spec -> function", 21},
-    {"type_spec -> ID", 22},
-    {"while_stmt -> while ( expr ) stmt", 23},
-    {"compound_stmt -> { local_decls stmt_list }", 24},
-    {"module_stmt -> import ID ;", 25},
-    {"local_decls -> local_decls local_decl", 26},
-    {"local_decls -> ''", 27},
-    {"local_decl -> type_spec ID ;", 28},
-    {"local_decl -> type_spec ID [ int_literal ] ;", 29},
-    {"if_stmt -> if ( expr ) stmt", 30},
-    {"if_stmt -> if ( expr ) stmt else stmt", 31},
-    {"return_stmt -> return ;", 32},
-    {"return_stmt -> return expr ;", 33},
-    {"return_stmt -> ;", 34},
-    {"expr -> expr == expr", 35},
-    {"expr -> expr != expr", 36},
-    {"expr -> expr <= expr", 37},
-    {"expr -> expr < expr", 38},
-    {"expr -> expr >= expr", 39},
-    {"expr -> expr > expr", 40},
-    {"expr -> expr + expr", 41},
-    {"expr -> expr - expr", 42},
-    {"expr -> expr * expr", 43},
-    {"expr -> expr / expr", 44},
-    {"expr -> ( expr )", 45},
-    {"expr -> ID", 46},
-    {"expr -> ID [ expr ]", 47},
-    {"expr -> ID ( args )", 48},
-    {"expr -> int_literal", 49},
-    {"int_literal -> NUMBER", 50},
-    {"arg_list -> arg_list , expr", 51},
-    {"arg_list -> expr", 52},
-    {"args -> arg_list", 53},
-    {"args -> ''", 54},
+const vector<pair<string, string>> CFG = {
+    {"stmt_list", "program"},
+    {"stmt_list stmt", "stmt_list"},
+    {"", "stmt_list"},
+    {"expr_stmt", "stmt"},
+    {"decl_stmt", "stmt"},
+    {"module_stmt", "stmt"},
+    {"compound_stmt", "stmt"},
+    {"if_stmt", "stmt"},
+    {"while_stmt", "stmt"},
+    {"return_stmt", "stmt"},
+    {"continue ;", "stmt"},
+    {"break ;", "stmt"},
+    {"ID = expr ;", "expr_stmt"},
+    {"ID [ expr ] = expr ;", "expr_stmt"},
+    {"expr ;", "expr_stmt"},
+    {";", "expr_stmt"},
+    {"type_spec ID ;", "decl_stmt"},
+    {"type_spec ID [ int_literal ] ;", "decl_stmt"},
+    {"void", "type_spec"},
+    {"number", "type_spec"},
+    {"string", "type_spec"},
+    {"function", "type_spec"},
+    {"ID", "type_spec"},
+    {"while ( expr ) stmt", "while_stmt"},
+    {"{ local_decls stmt_list }", "compound_stmt"},
+    {"import ID ;", "module_stmt"},
+    {"local_decls local_decl", "local_decls"},
+    {"", "local_decls"},
+    {"type_spec ID ;", "local_decl"},
+    {"type_spec ID [ int_literal ] ;", "local_decl"},
+    {"if ( expr ) stmt", "if_stmt"},
+    {"if ( expr ) stmt else stmt", "if_stmt"},
+    {"return ;", "return_stmt"},
+    {"return expr ;", "return_stmt"},
+    {";", "return_stmt"},
+    {"expr == expr", "expr"},
+    {"expr != expr", "expr"},
+    {"expr <= expr", "expr"},
+    {"expr < expr", "expr"},
+    {"expr >= expr", "expr"},
+    {"expr > expr", "expr"},
+    {"expr + expr", "expr"},
+    {"expr - expr", "expr"},
+    {"expr * expr", "expr"},
+    {"expr / expr", "expr"},
+    {"( expr )", "expr"},
+    {"ID", "expr"},
+    {"ID [ expr ]", "expr"},
+    {"ID ( args )", "expr"},
+    {"int_literal", "expr"},
+    {"NUMBER", "int_literal"},
+    {"arg_list , expr", "arg_list"},
+    {"expr", "arg_list"},
+    {"arg_list", "args"},
+    {"", "args"},
+};
+
+// 元素与下标的对应关系
+unordered_map<string, int> element_to_number = {
+    {"continue", 0},
+    {";", 1},
+    {"break", 2},
+    {"ID", 3},
+    {"=", 4},
+    {"[", 5},
+    {"]", 6},
+    {"void", 7},
+    {"number", 8},
+    {"string", 9},
+    {"function", 10},
+    {"while", 11},
+    {"(", 12},
+    {")", 13},
+    {"{", 14},
+    {"}", 15},
+    {"import", 16},
+    {"if", 17},
+    {"else", 18},
+    {"return", 19},
+    {"==", 20},
+    {"!=", 21},
+    {"<=", 22},
+    {"<", 23},
+    {">=", 24},
+    {">", 25},
+    {"+", 26},
+    {"-", 27},
+    {"*", 28},
+    {"/", 29},
+    {"NUMBER", 30},
+    {",", 31},
+    {"$", 32},
+    {"program", 33},
+    {"stmt_list", 34},
+    {"stmt", 35},
+    {"expr_stmt", 36},
+    {"decl_stmt", 37},
+    {"type_spec", 38},
+    {"while_stmt", 39},
+    {"compound_stmt", 40},
+    {"module_stmt", 41},
+    {"local_decls", 42},
+    {"local_decl", 43},
+    {"if_stmt", 44},
+    {"return_stmt", 45},
+    {"expr", 46},
+    {"int_literal", 47},
+    {"arg_list", 48},
+    {"args", 49},
 };
 
 // SLR分析表

@@ -4,7 +4,7 @@
 #include <fcntl.h>
 #include "../includes/lex_analyzer.h"
 #include "../includes/type_checker.h"
-#include "../includes/enums.h"
+#include "../includes/lex_enums.h"
 using namespace std;
 
 // 函数声明
