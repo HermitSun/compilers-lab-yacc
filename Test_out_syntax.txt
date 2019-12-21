@@ -1,0 +1,1223 @@
+0 import
+r2
+State Stack: 0 
+Symbol Stack: $ stmt_list 
+
+State Stack: 0 1 
+Symbol Stack: $ stmt_list 
+
+1 import
+s16
+State Stack: 0 1 16 
+Symbol Stack: $ stmt_list import 
+
+16 ID
+s45
+State Stack: 0 1 16 45 
+Symbol Stack: $ stmt_list import ID 
+
+45 ;
+s70
+State Stack: 0 1 16 45 70 
+Symbol Stack: $ stmt_list import ID ; 
+
+70 import
+r25
+State Stack: 0 1 
+Symbol Stack: $ stmt_list module_stmt 
+
+State Stack: 0 1 5 
+Symbol Stack: $ stmt_list module_stmt 
+
+5 import
+r5
+State Stack: 0 1 
+Symbol Stack: $ stmt_list stmt 
+
+State Stack: 0 1 2 
+Symbol Stack: $ stmt_list stmt 
+
+2 import
+r1
+State Stack: 0 
+Symbol Stack: $ stmt_list 
+
+State Stack: 0 1 
+Symbol Stack: $ stmt_list 
+
+1 import
+s16
+State Stack: 0 1 16 
+Symbol Stack: $ stmt_list import 
+
+16 ID
+s45
+State Stack: 0 1 16 45 
+Symbol Stack: $ stmt_list import ID 
+
+45 ;
+s70
+State Stack: 0 1 16 45 70 
+Symbol Stack: $ stmt_list import ID ; 
+
+70 import
+r25
+State Stack: 0 1 
+Symbol Stack: $ stmt_list module_stmt 
+
+State Stack: 0 1 5 
+Symbol Stack: $ stmt_list module_stmt 
+
+5 import
+r5
+State Stack: 0 1 
+Symbol Stack: $ stmt_list stmt 
+
+State Stack: 0 1 2 
+Symbol Stack: $ stmt_list stmt 
+
+2 import
+r1
+State Stack: 0 
+Symbol Stack: $ stmt_list 
+
+State Stack: 0 1 
+Symbol Stack: $ stmt_list 
+
+1 import
+s16
+State Stack: 0 1 16 
+Symbol Stack: $ stmt_list import 
+
+16 ID
+s45
+State Stack: 0 1 16 45 
+Symbol Stack: $ stmt_list import ID 
+
+45 ;
+s70
+State Stack: 0 1 16 45 70 
+Symbol Stack: $ stmt_list import ID ; 
+
+70 number
+r25
+State Stack: 0 1 
+Symbol Stack: $ stmt_list module_stmt 
+
+State Stack: 0 1 5 
+Symbol Stack: $ stmt_list module_stmt 
+
+5 number
+r5
+State Stack: 0 1 
+Symbol Stack: $ stmt_list stmt 
+
+State Stack: 0 1 2 
+Symbol Stack: $ stmt_list stmt 
+
+2 number
+r1
+State Stack: 0 
+Symbol Stack: $ stmt_list 
+
+State Stack: 0 1 
+Symbol Stack: $ stmt_list 
+
+1 number
+s24
+State Stack: 0 1 24 
+Symbol Stack: $ stmt_list number 
+
+24 ID
+r19
+State Stack: 0 1 
+Symbol Stack: $ stmt_list type_spec 
+
+State Stack: 0 1 15 
+Symbol Stack: $ stmt_list type_spec 
+
+15 ID
+s44
+State Stack: 0 1 15 44 
+Symbol Stack: $ stmt_list type_spec ID 
+
+44 [
+s69
+State Stack: 0 1 15 44 69 
+Symbol Stack: $ stmt_list type_spec ID [ 
+
+69 NUMBER
+s27
+State Stack: 0 1 15 44 69 27 
+Symbol Stack: $ stmt_list type_spec ID [ NUMBER 
+
+27 ]
+r50
+State Stack: 0 1 15 44 69 
+Symbol Stack: $ stmt_list type_spec ID [ int_literal 
+
+State Stack: 0 1 15 44 69 84 
+Symbol Stack: $ stmt_list type_spec ID [ int_literal 
+
+84 ]
+s92
+State Stack: 0 1 15 44 69 84 92 
+Symbol Stack: $ stmt_list type_spec ID [ int_literal ] 
+
+92 ;
+s99
+State Stack: 0 1 15 44 69 84 92 99 
+Symbol Stack: $ stmt_list type_spec ID [ int_literal ] ; 
+
+99 ID
+r17
+State Stack: 0 1 
+Symbol Stack: $ stmt_list decl_stmt 
+
+State Stack: 0 1 4 
+Symbol Stack: $ stmt_list decl_stmt 
+
+4 ID
+r4
+State Stack: 0 1 
+Symbol Stack: $ stmt_list stmt 
+
+State Stack: 0 1 2 
+Symbol Stack: $ stmt_list stmt 
+
+2 ID
+r1
+State Stack: 0 
+Symbol Stack: $ stmt_list 
+
+State Stack: 0 1 
+Symbol Stack: $ stmt_list 
+
+1 ID
+s12
+State Stack: 0 1 12 
+Symbol Stack: $ stmt_list ID 
+
+12 ID
+r22
+State Stack: 0 1 
+Symbol Stack: $ stmt_list type_spec 
+
+State Stack: 0 1 15 
+Symbol Stack: $ stmt_list type_spec 
+
+15 ID
+s44
+State Stack: 0 1 15 44 
+Symbol Stack: $ stmt_list type_spec ID 
+
+44 ;
+s68
+State Stack: 0 1 15 44 68 
+Symbol Stack: $ stmt_list type_spec ID ; 
+
+68 number
+r16
+State Stack: 0 1 
+Symbol Stack: $ stmt_list decl_stmt 
+
+State Stack: 0 1 4 
+Symbol Stack: $ stmt_list decl_stmt 
+
+4 number
+r4
+State Stack: 0 1 
+Symbol Stack: $ stmt_list stmt 
+
+State Stack: 0 1 2 
+Symbol Stack: $ stmt_list stmt 
+
+2 number
+r1
+State Stack: 0 
+Symbol Stack: $ stmt_list 
+
+State Stack: 0 1 
+Symbol Stack: $ stmt_list 
+
+1 number
+s24
+State Stack: 0 1 24 
+Symbol Stack: $ stmt_list number 
+
+24 ID
+r19
+State Stack: 0 1 
+Symbol Stack: $ stmt_list type_spec 
+
+State Stack: 0 1 15 
+Symbol Stack: $ stmt_list type_spec 
+
+15 ID
+s44
+State Stack: 0 1 15 44 
+Symbol Stack: $ stmt_list type_spec ID 
+
+44 ;
+s68
+State Stack: 0 1 15 44 68 
+Symbol Stack: $ stmt_list type_spec ID ; 
+
+68 ID
+r16
+State Stack: 0 1 
+Symbol Stack: $ stmt_list decl_stmt 
+
+State Stack: 0 1 4 
+Symbol Stack: $ stmt_list decl_stmt 
+
+4 ID
+r4
+State Stack: 0 1 
+Symbol Stack: $ stmt_list stmt 
+
+State Stack: 0 1 2 
+Symbol Stack: $ stmt_list stmt 
+
+2 ID
+r1
+State Stack: 0 
+Symbol Stack: $ stmt_list 
+
+State Stack: 0 1 
+Symbol Stack: $ stmt_list 
+
+1 ID
+s12
+State Stack: 0 1 12 
+Symbol Stack: $ stmt_list ID 
+
+12 =
+s30
+State Stack: 0 1 12 30 
+Symbol Stack: $ stmt_list ID = 
+
+30 NUMBER
+s27
+State Stack: 0 1 12 30 27 
+Symbol Stack: $ stmt_list ID = NUMBER 
+
+27 ;
+r50
+State Stack: 0 1 12 30 
+Symbol Stack: $ stmt_list ID = int_literal 
+
+State Stack: 0 1 12 30 22 
+Symbol Stack: $ stmt_list ID = int_literal 
+
+22 ;
+r49
+State Stack: 0 1 12 30 
+Symbol Stack: $ stmt_list ID = expr 
+
+State Stack: 0 1 12 30 53 
+Symbol Stack: $ stmt_list ID = expr 
+
+53 ;
+s80
+State Stack: 0 1 12 30 53 80 
+Symbol Stack: $ stmt_list ID = expr ; 
+
+80 while
+r12
+State Stack: 0 1 
+Symbol Stack: $ stmt_list expr_stmt 
+
+State Stack: 0 1 3 
+Symbol Stack: $ stmt_list expr_stmt 
+
+3 while
+r3
+State Stack: 0 1 
+Symbol Stack: $ stmt_list stmt 
+
+State Stack: 0 1 2 
+Symbol Stack: $ stmt_list stmt 
+
+2 while
+r1
+State Stack: 0 
+Symbol Stack: $ stmt_list 
+
+State Stack: 0 1 
+Symbol Stack: $ stmt_list 
+
+1 while
+s19
+State Stack: 0 1 19 
+Symbol Stack: $ stmt_list while 
+
+19 (
+s48
+State Stack: 0 1 19 48 
+Symbol Stack: $ stmt_list while ( 
+
+48 ID
+s51
+State Stack: 0 1 19 48 51 
+Symbol Stack: $ stmt_list while ( ID 
+
+51 [
+s78
+State Stack: 0 1 19 48 51 78 
+Symbol Stack: $ stmt_list while ( ID [ 
+
+78 ID
+s51
+State Stack: 0 1 19 48 51 78 51 
+Symbol Stack: $ stmt_list while ( ID [ ID 
+
+51 ]
+r46
+State Stack: 0 1 19 48 51 78 
+Symbol Stack: $ stmt_list while ( ID [ expr 
+
+State Stack: 0 1 19 48 51 78 89 
+Symbol Stack: $ stmt_list while ( ID [ expr 
+
+89 ]
+s97
+State Stack: 0 1 19 48 51 78 89 97 
+Symbol Stack: $ stmt_list while ( ID [ expr ] 
+
+97 )
+r47
+State Stack: 0 1 19 48 
+Symbol Stack: $ stmt_list while ( expr 
+
+State Stack: 0 1 19 48 76 
+Symbol Stack: $ stmt_list while ( expr 
+
+76 )
+s88
+State Stack: 0 1 19 48 76 88 
+Symbol Stack: $ stmt_list while ( expr ) 
+
+88 {
+s17
+State Stack: 0 1 19 48 76 88 17 
+Symbol Stack: $ stmt_list while ( expr ) { 
+
+17 if
+r27
+State Stack: 0 1 19 48 76 88 17 
+Symbol Stack: $ stmt_list while ( expr ) { local_decls 
+
+State Stack: 0 1 19 48 76 88 17 46 
+Symbol Stack: $ stmt_list while ( expr ) { local_decls 
+
+46 if
+r2
+State Stack: 0 1 19 48 76 88 17 46 
+Symbol Stack: $ stmt_list while ( expr ) { local_decls stmt_list 
+
+State Stack: 0 1 19 48 76 88 17 46 71 
+Symbol Stack: $ stmt_list while ( expr ) { local_decls stmt_list 
+
+71 if
+s18
+State Stack: 0 1 19 48 76 88 17 46 71 18 
+Symbol Stack: $ stmt_list while ( expr ) { local_decls stmt_list if 
+
+18 (
+s47
+State Stack: 0 1 19 48 76 88 17 46 71 18 47 
+Symbol Stack: $ stmt_list while ( expr ) { local_decls stmt_list if ( 
+
+47 ID
+s51
+State Stack: 0 1 19 48 76 88 17 46 71 18 47 51 
+Symbol Stack: $ stmt_list while ( expr ) { local_decls stmt_list if ( ID 
+
+51 )
+r46
+State Stack: 0 1 19 48 76 88 17 46 71 18 47 
+Symbol Stack: $ stmt_list while ( expr ) { local_decls stmt_list if ( expr 
+
+State Stack: 0 1 19 48 76 88 17 46 71 18 47 75 
+Symbol Stack: $ stmt_list while ( expr ) { local_decls stmt_list if ( expr 
+
+75 )
+s87
+State Stack: 0 1 19 48 76 88 17 46 71 18 47 75 87 
+Symbol Stack: $ stmt_list while ( expr ) { local_decls stmt_list if ( expr ) 
+
+87 {
+s17
+State Stack: 0 1 19 48 76 88 17 46 71 18 47 75 87 17 
+Symbol Stack: $ stmt_list while ( expr ) { local_decls stmt_list if ( expr ) { 
+
+17 continue
+r27
+State Stack: 0 1 19 48 76 88 17 46 71 18 47 75 87 17 
+Symbol Stack: $ stmt_list while ( expr ) { local_decls stmt_list if ( expr ) { local_decls 
+
+State Stack: 0 1 19 48 76 88 17 46 71 18 47 75 87 17 46 
+Symbol Stack: $ stmt_list while ( expr ) { local_decls stmt_list if ( expr ) { local_decls 
+
+46 continue
+r2
+State Stack: 0 1 19 48 76 88 17 46 71 18 47 75 87 17 46 
+Symbol Stack: $ stmt_list while ( expr ) { local_decls stmt_list if ( expr ) { local_decls stmt_list 
+
+State Stack: 0 1 19 48 76 88 17 46 71 18 47 75 87 17 46 71 
+Symbol Stack: $ stmt_list while ( expr ) { local_decls stmt_list if ( expr ) { local_decls stmt_list 
+
+71 continue
+s10
+State Stack: 0 1 19 48 76 88 17 46 71 18 47 75 87 17 46 71 10 
+Symbol Stack: $ stmt_list while ( expr ) { local_decls stmt_list if ( expr ) { local_decls stmt_list continue 
+
+10 ;
+s28
+State Stack: 0 1 19 48 76 88 17 46 71 18 47 75 87 17 46 71 10 28 
+Symbol Stack: $ stmt_list while ( expr ) { local_decls stmt_list if ( expr ) { local_decls stmt_list continue ; 
+
+28 }
+r10
+State Stack: 0 1 19 48 76 88 17 46 71 18 47 75 87 17 46 71 
+Symbol Stack: $ stmt_list while ( expr ) { local_decls stmt_list if ( expr ) { local_decls stmt_list stmt 
+
+State Stack: 0 1 19 48 76 88 17 46 71 18 47 75 87 17 46 71 2 
+Symbol Stack: $ stmt_list while ( expr ) { local_decls stmt_list if ( expr ) { local_decls stmt_list stmt 
+
+2 }
+r1
+State Stack: 0 1 19 48 76 88 17 46 71 18 47 75 87 17 46 
+Symbol Stack: $ stmt_list while ( expr ) { local_decls stmt_list if ( expr ) { local_decls stmt_list 
+
+State Stack: 0 1 19 48 76 88 17 46 71 18 47 75 87 17 46 71 
+Symbol Stack: $ stmt_list while ( expr ) { local_decls stmt_list if ( expr ) { local_decls stmt_list 
+
+71 }
+s85
+State Stack: 0 1 19 48 76 88 17 46 71 18 47 75 87 17 46 71 85 
+Symbol Stack: $ stmt_list while ( expr ) { local_decls stmt_list if ( expr ) { local_decls stmt_list } 
+
+85 else
+r24
+State Stack: 0 1 19 48 76 88 17 46 71 18 47 75 87 
+Symbol Stack: $ stmt_list while ( expr ) { local_decls stmt_list if ( expr ) compound_stmt 
+
+State Stack: 0 1 19 48 76 88 17 46 71 18 47 75 87 6 
+Symbol Stack: $ stmt_list while ( expr ) { local_decls stmt_list if ( expr ) compound_stmt 
+
+6 else
+r6
+State Stack: 0 1 19 48 76 88 17 46 71 18 47 75 87 
+Symbol Stack: $ stmt_list while ( expr ) { local_decls stmt_list if ( expr ) stmt 
+
+State Stack: 0 1 19 48 76 88 17 46 71 18 47 75 87 95 
+Symbol Stack: $ stmt_list while ( expr ) { local_decls stmt_list if ( expr ) stmt 
+
+95 else
+s101
+State Stack: 0 1 19 48 76 88 17 46 71 18 47 75 87 95 101 
+Symbol Stack: $ stmt_list while ( expr ) { local_decls stmt_list if ( expr ) stmt else 
+
+101 {
+s17
+State Stack: 0 1 19 48 76 88 17 46 71 18 47 75 87 95 101 17 
+Symbol Stack: $ stmt_list while ( expr ) { local_decls stmt_list if ( expr ) stmt else { 
+
+17 break
+r27
+State Stack: 0 1 19 48 76 88 17 46 71 18 47 75 87 95 101 17 
+Symbol Stack: $ stmt_list while ( expr ) { local_decls stmt_list if ( expr ) stmt else { local_decls 
+
+State Stack: 0 1 19 48 76 88 17 46 71 18 47 75 87 95 101 17 46 
+Symbol Stack: $ stmt_list while ( expr ) { local_decls stmt_list if ( expr ) stmt else { local_decls 
+
+46 break
+r2
+State Stack: 0 1 19 48 76 88 17 46 71 18 47 75 87 95 101 17 46 
+Symbol Stack: $ stmt_list while ( expr ) { local_decls stmt_list if ( expr ) stmt else { local_decls stmt_list 
+
+State Stack: 0 1 19 48 76 88 17 46 71 18 47 75 87 95 101 17 46 71 
+Symbol Stack: $ stmt_list while ( expr ) { local_decls stmt_list if ( expr ) stmt else { local_decls stmt_list 
+
+71 break
+s11
+State Stack: 0 1 19 48 76 88 17 46 71 18 47 75 87 95 101 17 46 71 11 
+Symbol Stack: $ stmt_list while ( expr ) { local_decls stmt_list if ( expr ) stmt else { local_decls stmt_list break 
+
+11 ;
+s29
+State Stack: 0 1 19 48 76 88 17 46 71 18 47 75 87 95 101 17 46 71 11 29 
+Symbol Stack: $ stmt_list while ( expr ) { local_decls stmt_list if ( expr ) stmt else { local_decls stmt_list break ; 
+
+29 }
+r11
+State Stack: 0 1 19 48 76 88 17 46 71 18 47 75 87 95 101 17 46 71 
+Symbol Stack: $ stmt_list while ( expr ) { local_decls stmt_list if ( expr ) stmt else { local_decls stmt_list stmt 
+
+State Stack: 0 1 19 48 76 88 17 46 71 18 47 75 87 95 101 17 46 71 2 
+Symbol Stack: $ stmt_list while ( expr ) { local_decls stmt_list if ( expr ) stmt else { local_decls stmt_list stmt 
+
+2 }
+r1
+State Stack: 0 1 19 48 76 88 17 46 71 18 47 75 87 95 101 17 46 
+Symbol Stack: $ stmt_list while ( expr ) { local_decls stmt_list if ( expr ) stmt else { local_decls stmt_list 
+
+State Stack: 0 1 19 48 76 88 17 46 71 18 47 75 87 95 101 17 46 71 
+Symbol Stack: $ stmt_list while ( expr ) { local_decls stmt_list if ( expr ) stmt else { local_decls stmt_list 
+
+71 }
+s85
+State Stack: 0 1 19 48 76 88 17 46 71 18 47 75 87 95 101 17 46 71 85 
+Symbol Stack: $ stmt_list while ( expr ) { local_decls stmt_list if ( expr ) stmt else { local_decls stmt_list } 
+
+85 ID
+r24
+State Stack: 0 1 19 48 76 88 17 46 71 18 47 75 87 95 101 
+Symbol Stack: $ stmt_list while ( expr ) { local_decls stmt_list if ( expr ) stmt else compound_stmt 
+
+State Stack: 0 1 19 48 76 88 17 46 71 18 47 75 87 95 101 6 
+Symbol Stack: $ stmt_list while ( expr ) { local_decls stmt_list if ( expr ) stmt else compound_stmt 
+
+6 ID
+r6
+State Stack: 0 1 19 48 76 88 17 46 71 18 47 75 87 95 101 
+Symbol Stack: $ stmt_list while ( expr ) { local_decls stmt_list if ( expr ) stmt else stmt 
+
+State Stack: 0 1 19 48 76 88 17 46 71 18 47 75 87 95 101 104 
+Symbol Stack: $ stmt_list while ( expr ) { local_decls stmt_list if ( expr ) stmt else stmt 
+
+104 ID
+r31
+State Stack: 0 1 19 48 76 88 17 46 71 
+Symbol Stack: $ stmt_list while ( expr ) { local_decls stmt_list if_stmt 
+
+State Stack: 0 1 19 48 76 88 17 46 71 7 
+Symbol Stack: $ stmt_list while ( expr ) { local_decls stmt_list if_stmt 
+
+7 ID
+r7
+State Stack: 0 1 19 48 76 88 17 46 71 
+Symbol Stack: $ stmt_list while ( expr ) { local_decls stmt_list stmt 
+
+State Stack: 0 1 19 48 76 88 17 46 71 2 
+Symbol Stack: $ stmt_list while ( expr ) { local_decls stmt_list stmt 
+
+2 ID
+r1
+State Stack: 0 1 19 48 76 88 17 46 
+Symbol Stack: $ stmt_list while ( expr ) { local_decls stmt_list 
+
+State Stack: 0 1 19 48 76 88 17 46 71 
+Symbol Stack: $ stmt_list while ( expr ) { local_decls stmt_list 
+
+71 ID
+s12
+State Stack: 0 1 19 48 76 88 17 46 71 12 
+Symbol Stack: $ stmt_list while ( expr ) { local_decls stmt_list ID 
+
+12 =
+s30
+State Stack: 0 1 19 48 76 88 17 46 71 12 30 
+Symbol Stack: $ stmt_list while ( expr ) { local_decls stmt_list ID = 
+
+30 ID
+s51
+State Stack: 0 1 19 48 76 88 17 46 71 12 30 51 
+Symbol Stack: $ stmt_list while ( expr ) { local_decls stmt_list ID = ID 
+
+51 +
+r46
+State Stack: 0 1 19 48 76 88 17 46 71 12 30 
+Symbol Stack: $ stmt_list while ( expr ) { local_decls stmt_list ID = expr 
+
+State Stack: 0 1 19 48 76 88 17 46 71 12 30 53 
+Symbol Stack: $ stmt_list while ( expr ) { local_decls stmt_list ID = expr 
+
+53 +
+s40
+State Stack: 0 1 19 48 76 88 17 46 71 12 30 53 40 
+Symbol Stack: $ stmt_list while ( expr ) { local_decls stmt_list ID = expr + 
+
+40 NUMBER
+s27
+State Stack: 0 1 19 48 76 88 17 46 71 12 30 53 40 27 
+Symbol Stack: $ stmt_list while ( expr ) { local_decls stmt_list ID = expr + NUMBER 
+
+27 ;
+r50
+State Stack: 0 1 19 48 76 88 17 46 71 12 30 53 40 
+Symbol Stack: $ stmt_list while ( expr ) { local_decls stmt_list ID = expr + int_literal 
+
+State Stack: 0 1 19 48 76 88 17 46 71 12 30 53 40 22 
+Symbol Stack: $ stmt_list while ( expr ) { local_decls stmt_list ID = expr + int_literal 
+
+22 ;
+r49
+State Stack: 0 1 19 48 76 88 17 46 71 12 30 53 40 
+Symbol Stack: $ stmt_list while ( expr ) { local_decls stmt_list ID = expr + expr 
+
+State Stack: 0 1 19 48 76 88 17 46 71 12 30 53 40 64 
+Symbol Stack: $ stmt_list while ( expr ) { local_decls stmt_list ID = expr + expr 
+
+64 ;
+r41
+State Stack: 0 1 19 48 76 88 17 46 71 12 30 
+Symbol Stack: $ stmt_list while ( expr ) { local_decls stmt_list ID = expr 
+
+State Stack: 0 1 19 48 76 88 17 46 71 12 30 53 
+Symbol Stack: $ stmt_list while ( expr ) { local_decls stmt_list ID = expr 
+
+53 ;
+s80
+State Stack: 0 1 19 48 76 88 17 46 71 12 30 53 80 
+Symbol Stack: $ stmt_list while ( expr ) { local_decls stmt_list ID = expr ; 
+
+80 }
+r12
+State Stack: 0 1 19 48 76 88 17 46 71 
+Symbol Stack: $ stmt_list while ( expr ) { local_decls stmt_list expr_stmt 
+
+State Stack: 0 1 19 48 76 88 17 46 71 3 
+Symbol Stack: $ stmt_list while ( expr ) { local_decls stmt_list expr_stmt 
+
+3 }
+r3
+State Stack: 0 1 19 48 76 88 17 46 71 
+Symbol Stack: $ stmt_list while ( expr ) { local_decls stmt_list stmt 
+
+State Stack: 0 1 19 48 76 88 17 46 71 2 
+Symbol Stack: $ stmt_list while ( expr ) { local_decls stmt_list stmt 
+
+2 }
+r1
+State Stack: 0 1 19 48 76 88 17 46 
+Symbol Stack: $ stmt_list while ( expr ) { local_decls stmt_list 
+
+State Stack: 0 1 19 48 76 88 17 46 71 
+Symbol Stack: $ stmt_list while ( expr ) { local_decls stmt_list 
+
+71 }
+s85
+State Stack: 0 1 19 48 76 88 17 46 71 85 
+Symbol Stack: $ stmt_list while ( expr ) { local_decls stmt_list } 
+
+85 ID
+r24
+State Stack: 0 1 19 48 76 88 
+Symbol Stack: $ stmt_list while ( expr ) compound_stmt 
+
+State Stack: 0 1 19 48 76 88 6 
+Symbol Stack: $ stmt_list while ( expr ) compound_stmt 
+
+6 ID
+r6
+State Stack: 0 1 19 48 76 88 
+Symbol Stack: $ stmt_list while ( expr ) stmt 
+
+State Stack: 0 1 19 48 76 88 96 
+Symbol Stack: $ stmt_list while ( expr ) stmt 
+
+96 ID
+r23
+State Stack: 0 1 
+Symbol Stack: $ stmt_list while_stmt 
+
+State Stack: 0 1 8 
+Symbol Stack: $ stmt_list while_stmt 
+
+8 ID
+r8
+State Stack: 0 1 
+Symbol Stack: $ stmt_list stmt 
+
+State Stack: 0 1 2 
+Symbol Stack: $ stmt_list stmt 
+
+2 ID
+r1
+State Stack: 0 
+Symbol Stack: $ stmt_list 
+
+State Stack: 0 1 
+Symbol Stack: $ stmt_list 
+
+1 ID
+s12
+State Stack: 0 1 12 
+Symbol Stack: $ stmt_list ID 
+
+12 [
+s31
+State Stack: 0 1 12 31 
+Symbol Stack: $ stmt_list ID [ 
+
+31 ID
+s51
+State Stack: 0 1 12 31 51 
+Symbol Stack: $ stmt_list ID [ ID 
+
+51 ]
+r46
+State Stack: 0 1 12 31 
+Symbol Stack: $ stmt_list ID [ expr 
+
+State Stack: 0 1 12 31 54 
+Symbol Stack: $ stmt_list ID [ expr 
+
+54 ]
+s81
+State Stack: 0 1 12 31 54 81 
+Symbol Stack: $ stmt_list ID [ expr ] 
+
+81 =
+s90
+State Stack: 0 1 12 31 54 81 90 
+Symbol Stack: $ stmt_list ID [ expr ] = 
+
+90 (
+s21
+State Stack: 0 1 12 31 54 81 90 21 
+Symbol Stack: $ stmt_list ID [ expr ] = ( 
+
+21 NUMBER
+s27
+State Stack: 0 1 12 31 54 81 90 21 27 
+Symbol Stack: $ stmt_list ID [ expr ] = ( NUMBER 
+
+27 +
+r50
+State Stack: 0 1 12 31 54 81 90 21 
+Symbol Stack: $ stmt_list ID [ expr ] = ( int_literal 
+
+State Stack: 0 1 12 31 54 81 90 21 22 
+Symbol Stack: $ stmt_list ID [ expr ] = ( int_literal 
+
+22 +
+r49
+State Stack: 0 1 12 31 54 81 90 21 
+Symbol Stack: $ stmt_list ID [ expr ] = ( expr 
+
+State Stack: 0 1 12 31 54 81 90 21 52 
+Symbol Stack: $ stmt_list ID [ expr ] = ( expr 
+
+52 +
+s40
+State Stack: 0 1 12 31 54 81 90 21 52 40 
+Symbol Stack: $ stmt_list ID [ expr ] = ( expr + 
+
+40 NUMBER
+s27
+State Stack: 0 1 12 31 54 81 90 21 52 40 27 
+Symbol Stack: $ stmt_list ID [ expr ] = ( expr + NUMBER 
+
+27 *
+r50
+State Stack: 0 1 12 31 54 81 90 21 52 40 
+Symbol Stack: $ stmt_list ID [ expr ] = ( expr + int_literal 
+
+State Stack: 0 1 12 31 54 81 90 21 52 40 22 
+Symbol Stack: $ stmt_list ID [ expr ] = ( expr + int_literal 
+
+22 *
+r49
+State Stack: 0 1 12 31 54 81 90 21 52 40 
+Symbol Stack: $ stmt_list ID [ expr ] = ( expr + expr 
+
+State Stack: 0 1 12 31 54 81 90 21 52 40 64 
+Symbol Stack: $ stmt_list ID [ expr ] = ( expr + expr 
+
+64 *
+r41
+State Stack: 0 1 12 31 54 81 90 21 
+Symbol Stack: $ stmt_list ID [ expr ] = ( expr 
+
+State Stack: 0 1 12 31 54 81 90 21 52 
+Symbol Stack: $ stmt_list ID [ expr ] = ( expr 
+
+52 *
+s42
+State Stack: 0 1 12 31 54 81 90 21 52 42 
+Symbol Stack: $ stmt_list ID [ expr ] = ( expr * 
+
+42 NUMBER
+s27
+State Stack: 0 1 12 31 54 81 90 21 52 42 27 
+Symbol Stack: $ stmt_list ID [ expr ] = ( expr * NUMBER 
+
+27 /
+r50
+State Stack: 0 1 12 31 54 81 90 21 52 42 
+Symbol Stack: $ stmt_list ID [ expr ] = ( expr * int_literal 
+
+State Stack: 0 1 12 31 54 81 90 21 52 42 22 
+Symbol Stack: $ stmt_list ID [ expr ] = ( expr * int_literal 
+
+22 /
+r49
+State Stack: 0 1 12 31 54 81 90 21 52 42 
+Symbol Stack: $ stmt_list ID [ expr ] = ( expr * expr 
+
+State Stack: 0 1 12 31 54 81 90 21 52 42 66 
+Symbol Stack: $ stmt_list ID [ expr ] = ( expr * expr 
+
+66 /
+r43
+State Stack: 0 1 12 31 54 81 90 21 
+Symbol Stack: $ stmt_list ID [ expr ] = ( expr 
+
+State Stack: 0 1 12 31 54 81 90 21 52 
+Symbol Stack: $ stmt_list ID [ expr ] = ( expr 
+
+52 /
+s43
+State Stack: 0 1 12 31 54 81 90 21 52 43 
+Symbol Stack: $ stmt_list ID [ expr ] = ( expr / 
+
+43 NUMBER
+s27
+State Stack: 0 1 12 31 54 81 90 21 52 43 27 
+Symbol Stack: $ stmt_list ID [ expr ] = ( expr / NUMBER 
+
+27 )
+r50
+State Stack: 0 1 12 31 54 81 90 21 52 43 
+Symbol Stack: $ stmt_list ID [ expr ] = ( expr / int_literal 
+
+State Stack: 0 1 12 31 54 81 90 21 52 43 22 
+Symbol Stack: $ stmt_list ID [ expr ] = ( expr / int_literal 
+
+22 )
+r49
+State Stack: 0 1 12 31 54 81 90 21 52 43 
+Symbol Stack: $ stmt_list ID [ expr ] = ( expr / expr 
+
+State Stack: 0 1 12 31 54 81 90 21 52 43 67 
+Symbol Stack: $ stmt_list ID [ expr ] = ( expr / expr 
+
+67 )
+r44
+State Stack: 0 1 12 31 54 81 90 21 
+Symbol Stack: $ stmt_list ID [ expr ] = ( expr 
+
+State Stack: 0 1 12 31 54 81 90 21 52 
+Symbol Stack: $ stmt_list ID [ expr ] = ( expr 
+
+52 )
+s79
+State Stack: 0 1 12 31 54 81 90 21 52 79 
+Symbol Stack: $ stmt_list ID [ expr ] = ( expr ) 
+
+79 ;
+r45
+State Stack: 0 1 12 31 54 81 90 
+Symbol Stack: $ stmt_list ID [ expr ] = expr 
+
+State Stack: 0 1 12 31 54 81 90 98 
+Symbol Stack: $ stmt_list ID [ expr ] = expr 
+
+98 ;
+s102
+State Stack: 0 1 12 31 54 81 90 98 102 
+Symbol Stack: $ stmt_list ID [ expr ] = expr ; 
+
+102 ID
+r13
+State Stack: 0 1 
+Symbol Stack: $ stmt_list expr_stmt 
+
+State Stack: 0 1 3 
+Symbol Stack: $ stmt_list expr_stmt 
+
+3 ID
+r3
+State Stack: 0 1 
+Symbol Stack: $ stmt_list stmt 
+
+State Stack: 0 1 2 
+Symbol Stack: $ stmt_list stmt 
+
+2 ID
+r1
+State Stack: 0 
+Symbol Stack: $ stmt_list 
+
+State Stack: 0 1 
+Symbol Stack: $ stmt_list 
+
+1 ID
+s12
+State Stack: 0 1 12 
+Symbol Stack: $ stmt_list ID 
+
+12 (
+s32
+State Stack: 0 1 12 32 
+Symbol Stack: $ stmt_list ID ( 
+
+32 NUMBER
+s27
+State Stack: 0 1 12 32 27 
+Symbol Stack: $ stmt_list ID ( NUMBER 
+
+27 +
+r50
+State Stack: 0 1 12 32 
+Symbol Stack: $ stmt_list ID ( int_literal 
+
+State Stack: 0 1 12 32 22 
+Symbol Stack: $ stmt_list ID ( int_literal 
+
+22 +
+r49
+State Stack: 0 1 12 32 
+Symbol Stack: $ stmt_list ID ( expr 
+
+State Stack: 0 1 12 32 57 
+Symbol Stack: $ stmt_list ID ( expr 
+
+57 +
+s40
+State Stack: 0 1 12 32 57 40 
+Symbol Stack: $ stmt_list ID ( expr + 
+
+40 NUMBER
+s27
+State Stack: 0 1 12 32 57 40 27 
+Symbol Stack: $ stmt_list ID ( expr + NUMBER 
+
+27 *
+r50
+State Stack: 0 1 12 32 57 40 
+Symbol Stack: $ stmt_list ID ( expr + int_literal 
+
+State Stack: 0 1 12 32 57 40 22 
+Symbol Stack: $ stmt_list ID ( expr + int_literal 
+
+22 *
+r49
+State Stack: 0 1 12 32 57 40 
+Symbol Stack: $ stmt_list ID ( expr + expr 
+
+State Stack: 0 1 12 32 57 40 64 
+Symbol Stack: $ stmt_list ID ( expr + expr 
+
+64 *
+r41
+State Stack: 0 1 12 32 
+Symbol Stack: $ stmt_list ID ( expr 
+
+State Stack: 0 1 12 32 57 
+Symbol Stack: $ stmt_list ID ( expr 
+
+57 *
+s42
+State Stack: 0 1 12 32 57 42 
+Symbol Stack: $ stmt_list ID ( expr * 
+
+42 NUMBER
+s27
+State Stack: 0 1 12 32 57 42 27 
+Symbol Stack: $ stmt_list ID ( expr * NUMBER 
+
+27 ==
+r50
+State Stack: 0 1 12 32 57 42 
+Symbol Stack: $ stmt_list ID ( expr * int_literal 
+
+State Stack: 0 1 12 32 57 42 22 
+Symbol Stack: $ stmt_list ID ( expr * int_literal 
+
+22 ==
+r49
+State Stack: 0 1 12 32 57 42 
+Symbol Stack: $ stmt_list ID ( expr * expr 
+
+State Stack: 0 1 12 32 57 42 66 
+Symbol Stack: $ stmt_list ID ( expr * expr 
+
+66 ==
+s34
+State Stack: 0 1 12 32 57 42 66 34 
+Symbol Stack: $ stmt_list ID ( expr * expr == 
+
+34 NUMBER
+s27
+State Stack: 0 1 12 32 57 42 66 34 27 
+Symbol Stack: $ stmt_list ID ( expr * expr == NUMBER 
+
+27 ,
+r50
+State Stack: 0 1 12 32 57 42 66 34 
+Symbol Stack: $ stmt_list ID ( expr * expr == int_literal 
+
+State Stack: 0 1 12 32 57 42 66 34 22 
+Symbol Stack: $ stmt_list ID ( expr * expr == int_literal 
+
+22 ,
+r49
+State Stack: 0 1 12 32 57 42 66 34 
+Symbol Stack: $ stmt_list ID ( expr * expr == expr 
+
+State Stack: 0 1 12 32 57 42 66 34 58 
+Symbol Stack: $ stmt_list ID ( expr * expr == expr 
+
+58 ,
+r35
+State Stack: 0 1 12 32 57 42 
+Symbol Stack: $ stmt_list ID ( expr * expr 
+
+State Stack: 0 1 12 32 57 42 66 
+Symbol Stack: $ stmt_list ID ( expr * expr 
+
+66 ,
+r43
+State Stack: 0 1 12 32 
+Symbol Stack: $ stmt_list ID ( expr 
+
+State Stack: 0 1 12 32 57 
+Symbol Stack: $ stmt_list ID ( expr 
+
+57 ,
+r52
+State Stack: 0 1 12 32 
+Symbol Stack: $ stmt_list ID ( arg_list 
+
+State Stack: 0 1 12 32 56 
+Symbol Stack: $ stmt_list ID ( arg_list 
+
+56 ,
+s83
+State Stack: 0 1 12 32 56 83 
+Symbol Stack: $ stmt_list ID ( arg_list , 
+
+83 ID
+s51
+State Stack: 0 1 12 32 56 83 51 
+Symbol Stack: $ stmt_list ID ( arg_list , ID 
+
+51 )
+r46
+State Stack: 0 1 12 32 56 83 
+Symbol Stack: $ stmt_list ID ( arg_list , expr 
+
+State Stack: 0 1 12 32 56 83 91 
+Symbol Stack: $ stmt_list ID ( arg_list , expr 
+
+91 )
+r51
+State Stack: 0 1 12 32 
+Symbol Stack: $ stmt_list ID ( arg_list 
+
+State Stack: 0 1 12 32 56 
+Symbol Stack: $ stmt_list ID ( arg_list 
+
+56 )
+r53
+State Stack: 0 1 12 32 
+Symbol Stack: $ stmt_list ID ( args 
+
+State Stack: 0 1 12 32 55 
+Symbol Stack: $ stmt_list ID ( args 
+
+55 )
+s82
+State Stack: 0 1 12 32 55 82 
+Symbol Stack: $ stmt_list ID ( args ) 
+
+82 ;
+r48
+State Stack: 0 1 
+Symbol Stack: $ stmt_list expr 
+
+State Stack: 0 1 13 
+Symbol Stack: $ stmt_list expr 
+
+13 ;
+s33
+State Stack: 0 1 13 33 
+Symbol Stack: $ stmt_list expr ; 
+
+33 return
+r14
+State Stack: 0 1 
+Symbol Stack: $ stmt_list expr_stmt 
+
+State Stack: 0 1 3 
+Symbol Stack: $ stmt_list expr_stmt 
+
+3 return
+r3
+State Stack: 0 1 
+Symbol Stack: $ stmt_list stmt 
+
+State Stack: 0 1 2 
+Symbol Stack: $ stmt_list stmt 
+
+2 return
+r1
+State Stack: 0 
+Symbol Stack: $ stmt_list 
+
+State Stack: 0 1 
+Symbol Stack: $ stmt_list 
+
+1 return
+s20
+State Stack: 0 1 20 
+Symbol Stack: $ stmt_list return 
+
+20 NUMBER
+s27
+State Stack: 0 1 20 27 
+Symbol Stack: $ stmt_list return NUMBER 
+
+27 ;
+r50
+State Stack: 0 1 20 
+Symbol Stack: $ stmt_list return int_literal 
+
+State Stack: 0 1 20 22 
+Symbol Stack: $ stmt_list return int_literal 
+
+22 ;
+r49
+State Stack: 0 1 20 
+Symbol Stack: $ stmt_list return expr 
+
+State Stack: 0 1 20 50 
+Symbol Stack: $ stmt_list return expr 
+
+50 ;
+s77
+State Stack: 0 1 20 50 77 
+Symbol Stack: $ stmt_list return expr ; 
+
+77 $
+r33
+State Stack: 0 1 
+Symbol Stack: $ stmt_list return_stmt 
+
+State Stack: 0 1 9 
+Symbol Stack: $ stmt_list return_stmt 
+
+9 $
+r9
+State Stack: 0 1 
+Symbol Stack: $ stmt_list stmt 
+
+State Stack: 0 1 2 
+Symbol Stack: $ stmt_list stmt 
+
+2 $
+r1
+State Stack: 0 
+Symbol Stack: $ stmt_list 
+
+State Stack: 0 1 
+Symbol Stack: $ stmt_list 
+
+1 $
+acc
+acc
