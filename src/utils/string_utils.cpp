@@ -27,16 +27,21 @@ static inline void trim(string &s)
     rtrim(s);
 }
 
-vector<string> split_string(const string &s, const string &delimiters)
+vector<string> split_string(const string &s, const string &delim)
 {
-    vector<string> tokens;
-    string::size_type lastPos = s.find_first_not_of(delimiters, 0);
-    string::size_type pos = s.find_first_of(delimiters, lastPos);
-    while (string::npos != pos || string::npos != lastPos)
+    vector<string> res;
+    int p = 0;
+    string::size_type pos1, pos2;
+    size_t len = s.length();
+    pos2 = s.find(delim);
+    pos1 = 0;
+    while (std::string::npos != pos2)
     {
-        tokens.push_back(s.substr(lastPos, pos - lastPos)); //use emplace_back after C++11
-        lastPos = s.find_first_not_of(delimiters, pos);
-        pos = s.find_first_of(delimiters, lastPos);
+        res.push_back(s.substr(pos1, pos2 - pos1));
+        pos1 = pos2 + delim.size();
+        pos2 = s.find(delim, pos1);
     }
-    return tokens;
+    if (pos1 != len)
+        res.push_back(s.substr(pos1));
+    return res;
 }
