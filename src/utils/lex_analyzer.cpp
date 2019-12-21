@@ -266,7 +266,7 @@ exist:
         return false;
     }
     // 添加结束符
-    out_vec.push_back("$");
+    out_vec.push_back("$, $");
     return true;
 }
 
