@@ -17,10 +17,14 @@ enum OPERATIONS
     GOTO
 };
 
+// 函数声明
 queue<string> preprocess(vector<string> &tokens);
 OPERATIONS get_operation_type(const string &op);
 bool go_to(vector<int> &state_stack, vector<string> &symbol_stack);
-void print_stack_trace(vector<int> &state_stack, vector<string> &symbol_stack);
+void print_stack_trace(ofstream &out_file,
+                       vector<int> &state_stack,
+                       vector<string> &symbol_stack);
+string predict_error_message(vector<string> &symbol_stack);
 
 // 不用stack的原因是需要输出每一步的规约过程……用vector总觉得有哪里不对
 bool analyze_syntax(vector<string> &tokens, const string &out_path)
@@ -28,7 +32,7 @@ bool analyze_syntax(vector<string> &tokens, const string &out_path)
     // 处理过的token
     queue<string> processed_tokens = preprocess(tokens);
     // 规约过程保存路径
-    ofstream out(out_path);
+    ofstream out_file(out_path);
     // 状态栈，初始0号自动机
     vector<int> state_stack;
     state_stack.push_back(0);
@@ -41,29 +45,32 @@ bool analyze_syntax(vector<string> &tokens, const string &out_path)
         int state = state_stack.back();
         // 读头项
         string reader_item = processed_tokens.front();
-        cout << state << " " << reader_item << endl;
+        out_file << state << " " << reader_item << endl;
         // 查表获取操作类型
         auto element_index = element_to_number.find(reader_item);
         // 如果查不到，未知操作数，报错
         if (element_index == element_to_number.end())
         {
-            cout << "Error exist. Unknown operand: " + reader_item << endl;
+            cout << "Error exist. "
+                 << "Unknown operand: " + reader_item
+                 << endl;
             return false;
         }
         string operation = SLR_table[state][element_index->second];
         // 未定义行为
         if (operation == " ")
         {
-            cout << "Error exist."
-                 << "Maybe the previous statement did not end correctly?"
+            cout << "Error exist. "
+                 << predict_error_message(symbol_stack)
                  << endl;
             return false;
         }
-        cout << operation << endl;
+        out_file << operation << endl;
         switch (get_operation_type(operation))
         {
         // 语法分析正确完成
         case ACC:
+            out_file << "acc" << endl;
             return true;
         case SHIFT:
         {
@@ -73,7 +80,7 @@ bool analyze_syntax(vector<string> &tokens, const string &out_path)
             symbol_stack.push_back(reader_item);
             // 读头项出队
             processed_tokens.pop();
-            print_stack_trace(state_stack, symbol_stack);
+            print_stack_trace(out_file, state_stack, symbol_stack);
             break;
         }
         case REDUCE:
@@ -94,21 +101,25 @@ bool analyze_syntax(vector<string> &tokens, const string &out_path)
             }
             // 规约后，符号栈压栈
             symbol_stack.push_back(reduction.second);
-            print_stack_trace(state_stack, symbol_stack);
+            print_stack_trace(out_file, state_stack, symbol_stack);
             // 进行GOTO操作
             bool result = go_to(state_stack, symbol_stack);
             // 出错
             if (!result)
             {
-                cout << "Error exist." << endl;
+                cout << "Error exist."
+                     << predict_error_message(symbol_stack)
+                     << endl;
                 return false;
             }
+            // 成功后输出栈信息
+            print_stack_trace(out_file, state_stack, symbol_stack);
             break;
         }
         case GOTO:
             // 状态栈压栈
             state_stack.push_back(atoi(operation.c_str()));
-            print_stack_trace(state_stack, symbol_stack);
+            print_stack_trace(out_file, state_stack, symbol_stack);
             break;
         default:
             return false;
@@ -193,30 +204,87 @@ bool go_to(vector<int> &state_stack, vector<string> &symbol_stack)
     else
     {
         state_stack.push_back(atoi(goto_state.c_str()));
-        print_stack_trace(state_stack, symbol_stack);
         return true;
     }
 }
 
 /**
- * 打印栈的操作轨迹
+ * 输出栈的操作轨迹
+ * @param out_file 输出文件流
  * @param state_stack 状态栈
  * @param symbol_stack 符号栈
  */
-void print_stack_trace(vector<int> &state_stack, vector<string> &symbol_stack)
+void print_stack_trace(
+    ofstream &out_file,
+    vector<int> &state_stack,
+    vector<string> &symbol_stack)
 {
     // 打印栈
-    cout << "State Stack: ";
+    out_file << "State Stack: ";
     for (const int &state : state_stack)
     {
-        cout << state << " ";
+        out_file << state << " ";
     }
-    cout << endl;
-    cout << "Symbol Stack: ";
+    out_file << endl;
+    out_file << "Symbol Stack: ";
     for (const string &symbol : symbol_stack)
     {
-        cout << symbol << " ";
+        out_file << symbol << " ";
     }
-    cout << endl
-         << endl;
+    out_file << endl
+             << endl;
+}
+
+/**
+ * 根据当前栈的情况推测错误信息
+ * @param symbol_stack 符号栈
+ */
+string predict_error_message(vector<string> &symbol_stack)
+{
+    int brackets = 0;
+    int square_brackets = 0;
+    int curly_braces = 0;
+    for (const string &s : symbol_stack)
+    {
+        if (s == "(")
+        {
+            ++brackets;
+        }
+        else if (s == "[")
+        {
+            ++square_brackets;
+        }
+        else if (s == "{")
+        {
+            ++curly_braces;
+        }
+        else if (s == ")")
+        {
+            --brackets;
+        }
+        else if (s == "]")
+        {
+            --square_brackets;
+        }
+        else if (s == "}")
+        {
+            --curly_braces;
+        }
+    }
+    if (brackets)
+    {
+        return "Maybe '(' did not match?";
+    }
+    else if (square_brackets)
+    {
+        return "Maybe '[' did not match?";
+    }
+    else if (curly_braces)
+    {
+        return "Maybe '{' did not match?";
+    }
+    else
+    {
+        return "Maybe some statements did not end with ';' ?";
+    }
 }
